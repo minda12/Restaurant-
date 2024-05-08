@@ -7,7 +7,7 @@ function Meals() {
     <>
     <MealsSummary/>
     <AvailableMeals/>
-    {/* //dfgdh */}
+   
     </>
   )
 }
