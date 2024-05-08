@@ -9,7 +9,7 @@ function Header(props) {
 
     <header className={classes.header}>
         <h1>React Meals</h1>
-        {/* <button>Crt</button> */}
+    
         <HeaderCartButton/>
     </header>
     <div className={classes['main-image']}>
