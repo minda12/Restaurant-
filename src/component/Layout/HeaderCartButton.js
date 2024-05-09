@@ -5,7 +5,7 @@ import React from 'react'
 
 function HeaderCartButton(props) {
   return (
-    <button className={classes.button}> 
+    <button onClick ={props.onClick} className={classes.button}> 
      <span className={classes.icon}>
            <CartIcon/>
      </span>
