@@ -2,6 +2,7 @@ import React from 'react'
 import classes from './Mealitem.module.css'
 import Mealitemform from './Mealitemform'
 
+
 function MealItem(props) {
     const price =`$${props.price.toFixed(2)}`
   return (
@@ -13,7 +14,8 @@ function MealItem(props) {
      <div className={classes.price}>{price}</div>
      </div>
      <div>
-         <Mealitemform/>
+          <Mealitemform id={props.id} price = {props.price} name = {props.name}/>
+          
      </div>
  
     </li>
