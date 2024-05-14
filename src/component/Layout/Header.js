@@ -1,6 +1,7 @@
 import React from 'react'
 import classes from './Header.module.css'
 import Mealsimg from '../../assets/meals.jpg'
+
 import HeaderCartButton  from './HeaderCartButton'
 
 function Header(props) {
@@ -14,7 +15,10 @@ function Header(props) {
     </header>
     <div className={classes['main-image']}>
     <img src={Mealsimg} alt ='Food '/>
+    
+
     </div>
+   
 
     </>
   )

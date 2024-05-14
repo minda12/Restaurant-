@@ -1,24 +1,62 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import classes from './Cart.module.css'
 import Modal from '../UI/Modal'
+import CartContext from '../../store/CartContext'
+
 
 function Cart(props) {
-    const cartItems =<ul className={classes['cart-items']}>{[{
+   
 
-            id:1,
-            name:'sushi',
-            amount:2,
-            price:19.08
-    }].map(items=><li>{items.name}</li>)}</ul>
+  const Cartctx = useContext(CartContext)
 
+  const removeCartitem =(id)=>{
+    console.log("Cart remove button clicked" )
+     Cartctx.removeitem(id)
+  }
+
+  const increaseCartitem =()=>{
+    console.log("Increaes Cart  button clicked" )
+  }
 
   return (
     <Modal onClose={props.onClose}>
-      
-     {cartItems}
+     
+   
+     <div>
+      <h2>Items</h2>
+    
+      <ul  className = 'List'>
+        {Cartctx.items.map((items) => (
+          <li  key={items.id} >{items.items}  
+
+          <span id='quan'>x {items.Qty}</span>
+
+          <button 
+          onClick={removeCartitem}
+          className={classes["cart-buttonremove"]}
+          
+         
+           >-</button>
+            
+
+          <button  className={classes["cart-button"]}
+          onClick={increaseCartitem}
+         
+          >+</button>
+          
+          
+          </li>
+          
+        ))}
+      </ul>
+    </div>
+    
       <div className={classes.total}>
         <span>Total Amount</span>
-        <span>35.77</span>
+        {console.log("Cart Name",Cartctx.items)}
+        {console.log("Cart QTY",Cartctx.Qty)}
+        <span>${Cartctx.total}</span>
+        {console.log("Cart total",Cartctx.total)}
       </div>
       <div className={classes.actions}>
       <button onClick ={props.onClose} className = {classes['button--alt']}>Close</button>

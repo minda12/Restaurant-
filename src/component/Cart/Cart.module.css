@@ -5,7 +5,60 @@
     max-height: 20rem;
     overflow: auto;
   }
+
+ .List{
+   
+    padding: 10px;
+ }
+  li{
+  display: flex; /* Ensure the li itself is a flex container */
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 1.0rem;
+
+  }
+
+  li span{
+    color:rgb(74, 212, 20) ;
+    margin-left: auto;
+    font-size: larger;
+    font-style: italic;
+    padding-right: 20px;
+    
   
+ } 
+
+ .cart-button {
+  background-color: #2cc730;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 5px; /* Adjust as needed */
+ 
+}
+.cart-buttonremove {
+  background-color: rgba(238, 49, 16, 0.822);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 5px; /* Adjust as needed */
+}
+
+.cart-button:hover {
+  background-color: rgba(65, 209, 65, 0.637);
+}
+.cart-buttonremove:hover {
+  background-color: rgba(207, 38, 8, 0.575);
+}
   .total {
     display: flex;
     justify-content: space-between;
@@ -44,3 +97,4 @@
     background-color: #2cc730;
     color: white;
   }
+ 
