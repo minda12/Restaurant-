@@ -29,8 +29,43 @@ function CartProvider(props) {
 
 
       const removeItemCart = id  =>{
-        setItems((prevItems) => prevItems.filter((item) => item.id !== id));
+
+          const index = items.findIndex(item=>item.id===id)
+
+          if(index!==-1)
+          {
+               items[index].Qty -=1
+               items.total -=items[index].price
+
+               if(items[index].Qty===0)
+               {
+                items.splice(index,1)
+               }
+
+                 setItems([...items])
+                 console.log(items.total)
+
+          }
+          
+
+
       }
+
+      const addItemCart = (id) =>{
+        const index = items.findIndex(item=>item.id===id)
+
+        if(index!==-1)
+        {
+             items[index].Qty +=1
+             items.total +=items[index].price
+
+               setItems([...items])
+               console.log(items.total)
+
+        }
+        
+         }   
+
 
       const total = items.reduce((acc, item) => acc + item.price* item.Qty, 0).toFixed(2);;
     
@@ -40,7 +75,8 @@ function CartProvider(props) {
           total:total,
           Qty:items.reduce((acc, item) => acc + item.Qty, 0),
           addItem:addItemToCart,
-          removeitem: removeItemCart 
+          removeitem: removeItemCart ,
+          addItemCart:addItemCart
         }
         
 

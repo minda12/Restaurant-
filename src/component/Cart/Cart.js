@@ -10,12 +10,13 @@ function Cart(props) {
   const Cartctx = useContext(CartContext)
 
   const removeCartitem =(id)=>{
-    console.log("Cart remove button clicked" )
+    console.log("Cart remove button clicked", id)
      Cartctx.removeitem(id)
   }
 
-  const increaseCartitem =()=>{
-    console.log("Increaes Cart  button clicked" )
+  const increaseCartitem =(id)=>{
+    console.log("Increaes Cart  button clicked",id )
+    Cartctx.addItemCart(id)
   }
 
   return (
@@ -32,7 +33,7 @@ function Cart(props) {
           <span id='quan'>x {items.Qty}</span>
 
           <button 
-          onClick={removeCartitem}
+          onClick={()=>removeCartitem(items.id)}
           className={classes["cart-buttonremove"]}
           
          
@@ -40,7 +41,7 @@ function Cart(props) {
             
 
           <button  className={classes["cart-button"]}
-          onClick={increaseCartitem}
+           onClick={()=>increaseCartitem(items.id)}
          
           >+</button>
           
